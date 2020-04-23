@@ -95,7 +95,9 @@ def plot(time_mode_list: list, indicator_list: list, location_list: list, climat
         ax1.set_xticks([])
         plt.xticks(x, location_list, fontsize=20)
         plt.yticks(y, y, fontsize=20)
-        plt.savefig(os.path.join('.', 'output', 'mix', f'{filename}.png'))
+        if not os.path.exists(os.path.join('.', 'output')):
+            os.mkdir(os.path.join('.', 'output'))
+        plt.savefig(os.path.join('.', 'output', f'{filename}.png'))
 
 
 if __name__ == '__main__':
